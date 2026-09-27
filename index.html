@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adoption Interest Queue for Animal Shelter staff.">
+    <title>Adoption Interest Queue | Animal Shelter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- header section -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div>
+                <p class="eyebrow">Animal Shelter Management</p>
+                <h1>Adoption Interest Queue</h1>
+            </div>
+            <span class="staff-badge">Staff Portal</span>
+        </div>
+    </header>
+
+
+    <main class="page">
+
+        <!-- intro of the page -->
+        <section class="intro">
+            <p class="eyebrow">Adoption Management</p>
+            <h2>Keep adoption interests organised.</h2>
+            <p>Add applicant details and keep track of people interested in adopting an animal.</p>
+        </section>
+
+
+        <!--Overview -->
+        <section class="summary-grid" aria-label="Queue summary">
+            <article class="summary-card">
+                <span class="summary-label">Active Interests</span>
+                <strong id="activeCount">0</strong>
+            </article>
+            <article class="summary-card">
+                <span class="summary-label">Pending Review</span>
+                <strong id="pendingCount">0</strong>
+            </article>
+            <article class="summary-card">
+                <span class="summary-label">Added Today</span>
+                <strong id="todayCount">0</strong>
+            </article>
+        </section>
+
+
+        <section class="workspace">
+            <!-- form -->
+            <section class="panel form-panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">New Entry</p>
+                        <h2>Add Adoption Interest</h2>
+                    </div>
+                    <span class="required-note">
+                        <span class="required">*</span>
+                        Required
+                    </span>
+                </div>
+
+
+                <form id="interestForm" novalidate>
+                    <!-- info of the Applicant -->
+                    <fieldset>
+                        <legend>Applicant Information</legend>
+                        <div class="form-group">
+                            <label for="applicantName">
+                                Applicant Name
+                                <span class="required" aria-hidden="true">*</span>
+                            </label>
+                            <input type="text" id="applicantName" name="applicantName" autocomplete="name"
+                                placeholder="Enter applicant name" required aria-describedby="applicantNameError"
+                                aria-invalid="false">
+                            <p class="field-error" id="applicantNameError" role="alert"></p>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactPhone">
+                                    Phone Number
+                                    <span class="required" aria-hidden="true">*</span>
+                                </label>
+
+                                <input type="tel" id="contactPhone" name="contactPhone" autocomplete="tel"
+                                    inputmode="numeric" placeholder="Enter phone number" required
+                                    aria-describedby="contactPhoneError" aria-invalid="false">
+                                <p class="field-error" id="contactPhoneError" role="alert"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">
+                                    Email
+                                    <span class="required" aria-hidden="true">*</span>
+                                </label>
+                                <input type="email" id="contactEmail" name="contactEmail" autocomplete="email"
+                                    placeholder="Enter email address" required aria-describedby="contactEmailError"
+                                    aria-invalid="false">
+                                <p class="field-error" id="contactEmailError" role="alert"></p>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <!-- info abt the household -->
+                    <fieldset>
+                        <legend>Household Information</legend>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="householdType">
+                                    Household Type
+                                    <span class="required" aria-hidden="true">*</span>
+                                </label>
+
+                                <select id="householdType" name="householdType" required
+                                    aria-describedby="householdTypeError" aria-invalid="false">
+                                    <option value="">Select household type</option>
+                                    <option value="House">House</option>
+                                    <option value="Apartment">Apartment</option>
+                                    <option value="Condo">Condo</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <p class="field-error" id="householdTypeError" role="alert"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="experienceLevel">
+                                    Experience Level
+                                    <span class="required" aria-hidden="true">*</span>
+                                </label>
+                                <select id="experienceLevel" name="experienceLevel" required
+                                    aria-describedby="experienceLevelError" aria-invalid="false">
+                                    <option value="">Select experience</option>
+                                    <option value="First-time owner">First-time owner</option>
+                                    <option value="Some experience">Some experience</option>
+                                    <option value="Experienced owner">Experienced owner</option>
+                                </select>
+
+                                <p class="field-error" id="experienceLevelError" role="alert"></p>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <span class="field-label">Current Pets</span>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="currentPets" value="Yes">
+                                    <span>Yes</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="currentPets" value="No" checked>
+                                    <span>No</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <!-- details abt the adaption -->
+                    <fieldset>
+                        <legend>Adoption Interest</legend>
+                        <div class="form-group">
+                            <label for="animalName">
+                                Animal Name
+                                <span class="required" aria-hidden="true">*</span>
+                            </label>
+                            <input type="text" id="animalName" name="animalName" placeholder="Enter animal name"
+                                required aria-describedby="animalNameError" aria-invalid="false">
+                            <p class="field-error" id="animalNameError" role="alert"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Notes</label>
+                            <textarea id="notes" name="notes" rows="4" maxlength="500"
+                                placeholder="Add any relevant information..."></textarea>
+                            <small class="input-hint">Maximum 500 characters.</small>
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="primary-button">Add to Queue</button>
+                </form>
+            </section>
+
+
+            <!-- adaption queue -->
+            <section class="panel queue-panel">
+                <div class="queue-heading">
+                    <div>
+                        <p class="eyebrow">Current Queue</p>
+                        <h2>Active Adoption Interests</h2>
+                    </div>
+                    <span id="queueCount" class="queue-count">
+                        0 entries
+                    </span>
+                </div>
+                <div class="search-box">
+                    <label for="searchInput">Search queue</label>
+                    <input type="search" id="searchInput" placeholder="Search by applicant, animal or phone..."
+                        aria-label="Search adoption interest queue">
+                </div>
+                <div class="queue-wrapper">
+                    <div id="loadingOverlay" class="loading-overlay" aria-live="polite" hidden>
+                        <span class="spinner" aria-hidden="true"></span>
+                        <span>Saving changes...</span>
+                    </div>
+                    <ul id="queueList" class="queue-list" aria-live="polite"></ul>
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <p>Animal Shelter Management | Adoption Interest Queue</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
