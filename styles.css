@@ -29,10 +29,8 @@ body {
     margin: 0;
     min-width: 0;
     overflow-x: hidden;
-
     background: var(--background);
     color: var(--text);
-
     font-family:
         Inter,
         ui-sans-serif,
@@ -56,9 +54,7 @@ body {
 .header-inner {
     width: min(1400px, calc(100% - 40px));
     margin: 0 auto;
-
     min-height: 86px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -67,9 +63,7 @@ body {
 
 .eyebrow {
     margin: 0 0 5px;
-
     color: var(--muted);
-
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -78,20 +72,16 @@ body {
 
 .site-header h1 {
     margin: 0;
-
     font-size: clamp(1.25rem, 2vw, 1.6rem);
     line-height: 1.2;
 }
 
 .staff-badge {
     padding: 7px 12px;
-
     border: 1px solid var(--border-dark);
     border-radius: 999px;
-
     color: var(--muted);
     background: var(--surface-soft);
-
     font-size: 0.78rem;
     font-weight: 600;
 }
@@ -126,26 +116,21 @@ body {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
-
     margin-bottom: 24px;
 }
 
 .summary-card {
     min-width: 0;
-
     padding: 20px;
-
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-
     box-shadow: var(--shadow);
 }
 
 .summary-label {
     display: block;
     margin-bottom: 8px;
-
     color: var(--muted);
     font-size: 0.82rem;
     font-weight: 600;
@@ -159,22 +144,16 @@ body {
 /* workspace section */
 .workspace {
     display: grid;
-
-    /* Both columns are allowed to shrink */
     grid-template-columns: minmax(0, 390px) minmax(0, 1fr);
-
     gap: 24px;
-
     align-items: start;
 }
 
 .panel {
     min-width: 0;
-
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-
     box-shadow: var(--shadow);
 }
 
@@ -195,21 +174,18 @@ body {
     align-items: flex-start;
     justify-content: space-between;
     gap: 16px;
-
     margin-bottom: 24px;
 }
 
 .panel-heading h2,
 .queue-heading h2 {
     margin: 0;
-
     font-size: 1.15rem;
     line-height: 1.3;
 }
 
 .required-note {
     flex-shrink: 0;
-
     color: var(--muted);
     font-size: 0.75rem;
 }
@@ -221,7 +197,6 @@ body {
 
 .queue-count {
     flex-shrink: 0;
-
     color: var(--muted);
     font-size: 0.8rem;
     font-weight: 600;
@@ -232,21 +207,16 @@ body {
 
 fieldset {
     min-width: 0;
-
     margin: 0 0 24px;
     padding: 0;
-
     border: 0;
 }
 
 legend {
     width: 100%;
     margin-bottom: 14px;
-
     padding-bottom: 8px;
-
     border-bottom: 1px solid var(--border);
-
     font-size: 0.85rem;
     font-weight: 700;
 }
@@ -266,7 +236,6 @@ legend {
 .field-label {
     display: block;
     margin-bottom: 6px;
-
     font-size: 0.82rem;
     font-weight: 650;
 }
@@ -275,22 +244,16 @@ input,
 select,
 textarea {
     display: block;
-
     width: 100%;
     max-width: 100%;
     min-width: 0;
-
     padding: 10px 12px;
-
     border: 1px solid var(--border-dark);
     border-radius: 7px;
-
     background: var(--surface);
     color: var(--text);
-
     font: inherit;
     font-size: 0.88rem;
-
     outline: none;
 }
 
@@ -298,7 +261,6 @@ input:focus,
 select:focus,
 textarea:focus {
     border-color: var(--primary);
-
     box-shadow: 0 0 0 3px rgba(39, 39, 42, 0.1);
 }
 
@@ -315,7 +277,6 @@ textarea::placeholder {
 .input-hint {
     display: block;
     margin-top: 5px;
-
     color: var(--muted);
     font-size: 0.72rem;
 }
@@ -325,9 +286,7 @@ textarea::placeholder {
 
 .field-error {
     min-height: 0;
-
     margin: 4px 0 0;
-
     color: var(--danger);
     font-size: 0.75rem;
 }
@@ -352,12 +311,9 @@ textarea.error {
     display: flex;
     align-items: center;
     gap: 8px;
-
     padding: 9px 12px;
-
     border: 1px solid var(--border);
     border-radius: 7px;
-
     cursor: pointer;
 }
 
@@ -376,21 +332,16 @@ textarea.error {
 .primary-button,
 .remove-button {
     min-height: 40px;
-
     border-radius: 7px;
-
     font: inherit;
     font-size: 0.85rem;
     font-weight: 650;
-
     cursor: pointer;
 }
 
 .primary-button {
     width: 100%;
-
     border: 1px solid var(--primary);
-
     background: var(--primary);
     color: #ffffff;
 }
@@ -415,7 +366,6 @@ textarea.error {
 .search-box label {
     display: block;
     margin-bottom: 6px;
-
     font-size: 0.8rem;
     font-weight: 650;
 }
@@ -431,21 +381,16 @@ textarea.error {
 .queue-list {
     display: grid;
     gap: 12px;
-
     margin: 0;
     padding: 0;
-
     list-style: none;
 }
 
 .queue-item {
     min-width: 0;
-
     padding: 16px;
-
     border: 1px solid var(--border);
     border-radius: 9px;
-
     background: var(--surface-soft);
 }
 
@@ -454,37 +399,28 @@ textarea.error {
     justify-content: space-between;
     align-items: flex-start;
     gap: 12px;
-
     margin-bottom: 12px;
 }
 
 .queue-item h3 {
     min-width: 0;
-
     margin: 0;
-
     font-size: 0.98rem;
-
     overflow-wrap: anywhere;
 }
 
 .animal-name {
     margin: 2px 0 0;
-
     color: var(--muted);
     font-size: 0.8rem;
 }
 
 .status-badge {
     flex-shrink: 0;
-
     padding: 4px 8px;
-
     border-radius: 999px;
-
     background: var(--warning-bg);
     color: var(--warning);
-
     font-size: 0.7rem;
     font-weight: 700;
 }
@@ -493,7 +429,6 @@ textarea.error {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
-
     margin-bottom: 12px;
 }
 
@@ -503,11 +438,8 @@ textarea.error {
 
 .detail-label {
     display: block;
-
     margin-bottom: 2px;
-
     color: var(--muted);
-
     font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -515,21 +447,16 @@ textarea.error {
 
 .detail-value {
     min-width: 0;
-
     font-size: 0.8rem;
-
     overflow-wrap: anywhere;
 }
 
 .queue-notes {
     margin: 0 0 14px;
     padding-top: 12px;
-
     border-top: 1px solid var(--border);
-
     color: var(--muted);
     font-size: 0.8rem;
-
     overflow-wrap: anywhere;
 }
 
@@ -538,9 +465,7 @@ textarea.error {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-
     padding-top: 12px;
-
     border-top: 1px solid var(--border);
 }
 
@@ -551,9 +476,7 @@ textarea.error {
 
 .remove-button {
     padding: 7px 11px;
-
     border: 1px solid var(--border-dark);
-
     background: var(--surface);
     color: var(--text);
 }
@@ -568,10 +491,8 @@ textarea.error {
 
 .empty-state {
     padding: 40px 20px;
-
     border: 1px dashed var(--border-dark);
     border-radius: 9px;
-
     text-align: center;
 }
 
@@ -593,32 +514,28 @@ textarea.error {
     position: absolute;
     inset: 0;
     z-index: 5;
-
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-
     min-height: 120px;
-
     border-radius: 9px;
-
     background: rgba(255, 255, 255, 0.92);
-
     color: var(--text);
     font-size: 0.82rem;
     font-weight: 600;
 }
 
+.loading-overlay[hidden] {
+    display: none;
+}
+
 .spinner {
     width: 17px;
     height: 17px;
-
     border: 2px solid var(--border-dark);
     border-top-color: var(--primary);
-
     border-radius: 50%;
-
     animation: spin 0.7s linear infinite;
 }
 
@@ -633,11 +550,8 @@ textarea.error {
 
 .site-footer {
     padding: 24px 20px;
-
     border-top: 1px solid var(--border);
-
     color: var(--muted);
-
     text-align: center;
     font-size: 0.75rem;
 }
@@ -683,7 +597,7 @@ textarea.error {
         grid-template-columns: 1fr;
     }
 
-    .queue-details {
+    .queue-details 
         grid-template-columns: 1fr;
     }
 
@@ -698,7 +612,6 @@ textarea.error {
 
 
 @media (max-width: 420px) {
-
     .header-inner,
     .page {
         width: calc(100% - 16px);
