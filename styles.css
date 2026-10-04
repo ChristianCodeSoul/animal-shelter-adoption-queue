@@ -596,7 +596,7 @@ textarea.error {
         grid-template-columns: 1fr;
     }
 
-    .queue-details 
+    .queue-details {
         grid-template-columns: 1fr;
     }
 
