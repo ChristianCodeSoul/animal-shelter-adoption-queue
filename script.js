@@ -54,7 +54,6 @@ function setLoading(isLoading) {
 
 function setFieldError(field, message) {
     const errorElement = document.getElementById(`${field.id}Error`);
-
     field.classList.toggle("error", Boolean(message));
     field.setAttribute("aria-invalid", message ? "true" : "false");
 
@@ -65,7 +64,6 @@ function setFieldError(field, message) {
 
 function validateForm() {
     let isValid = true;
-
     const applicantName = document.getElementById("applicantName");
     const contactPhone = document.getElementById("contactPhone");
     const contactEmail = document.getElementById("contactEmail");
@@ -89,7 +87,6 @@ function validateForm() {
     } else {
         setFieldError(contactPhone, "");
     }
-
     const emailValue = contactEmail.value.trim();
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(emailValue)) {
@@ -157,23 +154,17 @@ function createDetail(label, value) {
     valueElement.className = "detail-value";
     valueElement.textContent = value || "Not provided";
     wrapper.append(labelElement, valueElement);
-
     return wrapper;
 }
 
 
 function renderQueue() {
     queueList.replaceChildren();
-
     const searchTerm = searchInput.value
         .trim()
         .toLowerCase();
     const filteredInterests = adoptionInterests.filter((interest) => {
-        const searchableText = [
-            interest.applicantName,
-            interest.animalName,
-            interest.phone
-        ]
+        const searchableText = [interest.applicantName, interest.animalName, interest.phone]
             .join(" ")
             .toLowerCase();
         return searchableText.includes(searchTerm);
@@ -192,7 +183,6 @@ function renderQueue() {
             : "New adoption interests will appear here.";
         emptyItem.append(title, message);
         queueList.appendChild(emptyItem);
-
         return;
     }
 
@@ -215,7 +205,6 @@ function renderQueue() {
         top.append(titleWrapper, status);
         const details = document.createElement("div");
         details.className = "queue-details";
-
         details.append(
             createDetail("Phone", interest.phone),
             createDetail("Email", interest.contactEmail),
@@ -226,7 +215,6 @@ function renderQueue() {
 
         const notes = document.createElement("p");
         notes.className = "queue-notes";
-
         if (interest.notes) {
             notes.textContent = `Notes: ${interest.notes}`;
         } else {
@@ -242,8 +230,7 @@ function renderQueue() {
         removeButton.className = "remove-button";
         removeButton.textContent = "Remove";
         removeButton.setAttribute(
-            "aria-label",
-            `Remove adoption interest from ${interest.applicantName}`
+            "aria-label", `Remove adoption interest from ${interest.applicantName}`
         );
 
         removeButton.addEventListener("click", async () => {
@@ -263,7 +250,6 @@ function renderQueue() {
 
 function formatTimestamp(timestamp) {
     const date = new Date(timestamp);
-
     return new Intl.DateTimeFormat("en-IN", {
         dateStyle: "medium",
         timeStyle: "short"
@@ -272,8 +258,6 @@ function formatTimestamp(timestamp) {
 
 interestForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-
-
     if (!validateForm()) {
         const firstError = interestForm.querySelector(".error");
         if (firstError) {
@@ -287,44 +271,33 @@ interestForm.addEventListener("submit", async (event) => {
     const applicantName = sanitizeInput(
         document.getElementById("applicantName").value
     );
-
     const contactPhone = document
         .getElementById("contactPhone")
         .value
         .replace(/\D/g, "");
-
     const contactEmail = sanitizeInput(
         document.getElementById("contactEmail").value
     );
-
     const householdType = sanitizeInput(
         document.getElementById("householdType").value
     );
-
     const experienceLevel = sanitizeInput(
         document.getElementById("experienceLevel").value
     );
-
     const animalName = sanitizeInput(
         document.getElementById("animalName").value
     );
-
     const notes = sanitizeInput(
         document.getElementById("notes").value
     );
-
     const currentPets = document.querySelector(
         'input[name="currentPets"]:checked'
     ).value;
-
-
-
     await simulateNetworkDelay();
 
 
     const newInterest = {
         id: Date.now().toString(),
-
         applicantName,
         phone: contactPhone,
         contactEmail,
@@ -333,9 +306,7 @@ interestForm.addEventListener("submit", async (event) => {
         currentPets,
         experienceLevel,
         notes,
-
         status: "Pending Review",
-
         timestamp: new Date().toISOString()
     };
 
@@ -355,7 +326,6 @@ interestForm.addEventListener("submit", async (event) => {
     setLoading(false);
     updateSummary();
     renderQueue();
-
     document.getElementById("applicantName").focus();
 });
 
@@ -363,7 +333,6 @@ interestForm.addEventListener("submit", async (event) => {
 
 async function removeInterest(id) {
     setLoading(true);
-
     await simulateNetworkDelay();
 
 
@@ -373,11 +342,8 @@ async function removeInterest(id) {
 
 
     setLoading(false);
-
     updateSummary();
     renderQueue();
-
-
     console.log(
         "[Analytics] User interacted with Adoption Interest Queue"
     );
@@ -400,13 +366,11 @@ const fieldsToWatch = [
 
 fieldsToWatch.forEach((fieldId) => {
     const field = document.getElementById(fieldId);
-
     field.addEventListener("input", () => {
         if (field.classList.contains("error")) {
             validateForm();
         }
     });
-
     field.addEventListener("change", () => {
         if (field.classList.contains("error")) {
             validateForm();
